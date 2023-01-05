@@ -1,0 +1,68 @@
+---
+title: "visualize_nonliftover_locs"
+author: "Kate Weaver"
+date: '2022-07-06'
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+ 
+```{r}
+nonliftdf <- data.frame(chrom = c("chr1", "chr10", "chr11", "chr12", "chr13", "chr14", "chr15", "chr16", "chr17", "chr18", "chr19", "chr2", "chr20", "chr21", "chr22", "chr3", "chr4", "chr5", "chr6", "chr7", "chr8", "chr9"), ognum = c(19692, 9193, 9967, 9603, 4991, 6082, 5906, 6552, 8379, 4104, 7377, 15879, 5106, 2575, 4556, 13050, 9156, 10509, 13300, 10807, 9868, 8289), nonliftnum = c(202, 65, 8, 3, 9, 45, 6, 0, 82, 2, 28, 19, 79, 4, 57, 8, 4, 1, 56, 81, 27, 40))
+nonliftdf$relnum <- nonliftdf$nonliftnum / nonliftdf$ognum
+
+nonliftdf$chr_num <- as.integer(str_replace(nonliftdf$chrom, "chr", ""))
+nonliftdf <- nonliftdf[order(nonliftdf$chr_num),]
+nonliftdf <- setorder(nonliftdf, chr_num)
+nonliftdf$chr_num <- factor(nonliftdf$chr_num, labels=c(paste0("chr", 1:22)))
+```
+
+```{r}
+library(ggplot2)
+
+ggplot(nonliftdf, aes(x=chr_num, y=relnum)) + geom_bar(stat = "identity") + theme_bw() + theme(panel.background = element_blank(), panel.grid = element_blank(), axis.text.x = element_text(angle = 90)) + ylab("Prop of all chromosome specific cCREs that failed liftover") + xlab("Chromosome")
+
+````
+
+```{r}
+library(tidyverse)
+nonliftlocs <- read.table("~/mccoyLab/VISION/sldsc/S3V2_IDEAS_hg38_ccre2.cCRE.M.notall0.rmallNEU.hg38.failed.nocomments.bed") %>% `colnames<-`(c("Chrom", "ChromStart", "ChromEnd"))
+
+```
+
+```{r}
+chromsizes <- read.table("~/genomes/hg38_genome/hg38.chrom.sizes_main.txt") %>% `colnames<-`(c("Chrom", "length"))
+
+```
+
+```{r}
+nonliftlocs$relativeloc <- NA
+for (chrom in paste0("chr", 1:22)){
+  nonliftlocsoi <- nonliftlocs[which(nonliftlocs$Chrom == chrom),]
+  loi <- chromsizes[which(chromsizes$Chrom == chrom), "length"]
+  relativeloc <- ((nonliftlocsoi$ChromEnd + nonliftlocsoi$ChromStart) / 2) / loi
+  nonliftlocs[which(nonliftlocs$Chrom == chrom), "relativeloc"] <- relativeloc
+}
+
+```
+
+```{r}
+nonliftlocs <- nonliftlocs[which(nonliftlocs$Chrom %in% paste0("chr", 1:22)),]
+nonliftlocs$chr_num <- as.integer(str_replace(nonliftlocs$Chrom, "chr", ""))
+nonliftlocs <- nonliftlocs[order(nonliftlocs$chr_num),]
+nonliftlocs <- setorder(nonliftlocs, chr_num)
+nonliftlocs$chr_num <- factor(nonliftlocs$chr_num, labels=c(paste0("chr", 1:15), paste0("chr", 17:22)))
+
+ggplot(nonliftlocs, aes(x = relativeloc, y=1)) + geom_point() + facet_wrap(~chr_num) + theme_bw() + theme(panel.background = element_blank(), panel.grid = element_blank(), axis.title.y=element_blank(),
+        axis.text.y=element_blank(),
+        axis.ticks.y=element_blank()) + xlab("relative chromosome location")
+
+```
+
+```{r}
+nonliftlen <- nonliftlocs$ChromEnd - nonliftlocs$ChromStart %>% as.data.frame() %>% `colnames<-`("length")
+ggplot(nonliftlen, aes(x=length)) + geom_histogram(bins=50)  + theme_bw() + theme(panel.background = element_blank(), panel.grid = element_blank()) 
+```
