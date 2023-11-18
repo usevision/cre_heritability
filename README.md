@@ -6,4 +6,12 @@ Specifically, we used [linkage disequilibrium score regression (LDSC)](https://g
 
 ## Code
 
-The [`code` dirctory](/code) contains
+The [`code`](/code) directory contains code to download and prepare the data for the analyses, run LDSC, and create the plots used in the paper
+
+## Data
+
+The [`data_files`](/data_files) directory contains results from LDSC, used to create the plots used in the paper.
+
+## Plots
+
+The [`plots`](/plots) directory contains the exact plots produced by the scripts in the [`code/plot_figures`](/code/plot_figures) directory.
