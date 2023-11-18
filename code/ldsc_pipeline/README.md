@@ -16,7 +16,7 @@ There are several reference files LDSC needs to run, described below. At time of
     - [w_hm3.snplist.bz2](https://console.cloud.google.com/storage/browser/_details/broad-alkesgroup-public-requester-pays/LDSCORE/w_hm3.snplist.bz2)
     - This file should be unzipped after download
 3. LDSC weights for Hapmap3 SNPs
-    - [1000G_Phase3_weights_hm3_no_MHC.tg](https://console.cloud.google.com/storage/browser/_details/broad-alkesgroup-public-requester-pays/LDSCORE/1000G_Phase3_weights_hm3_no_MHC.tgz)
+    - [1000G_Phase3_weights_hm3_no_MHC.tgz](https://console.cloud.google.com/storage/browser/_details/broad-alkesgroup-public-requester-pays/LDSCORE/1000G_Phase3_weights_hm3_no_MHC.tgz)
     - This directory should be unzipped after download
 4. 1000G Phase 3 plink files
     - [1000G_Phase3_plinkfiles.tgz](https://console.cloud.google.com/storage/browser/_details/broad-alkesgroup-public-requester-pays/LDSCORE/1000G_Phase3_plinkfiles.tgz)
