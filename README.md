@@ -4,6 +4,6 @@ This directory contains code and data to replicate the trait heritability analys
 
 Specifically, we used (linkage disequilibrium score regression (LDSC))[https://github.com/bulik/ldsc] to quantify whether VISION human blood cell candidate cis-regulatory elements (cCREs) were enriched for heritability of 587 traits from (UKBB)[https://www.nealelab.is/uk-biobank].
 
-## (`code`)[/code/]
+## Code
 
-This directory contains...
+The (`code`)[https://github.com/usevision/cre_heritability/tree/main/code] directory contains
