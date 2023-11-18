@@ -9,10 +9,10 @@ These scripts assume you have `bedtools` and `ldsc.py` installed and in your PAT
 ## Step 0: Get the raw LDSC data
 
 There are several reference files LDSC needs to run, described below. At time of writing, these files were freely available for download from [here](https://alkesgroup.broadinstitute.org/LDSCORE/). They have since been moved to a requester-pays bucket [here](https://console.cloud.google.com/storage/browser/broad-alkesgroup-public-requester-pays/LDSCORE). The files/directories needed for LDSC analysis are as follows (all files are on GRCh37:
-1. LDSC baseline annotations for 1000G Phase3 SNPs
-  - [1000G_Phase3_baselineLD_v2.2_ldscores.tgz](https://console.cloud.google.com/storage/browser/_details/broad-alkesgroup-public-requester-pays/LDSCORE/1000G_Phase3_baselineLD_v2.2_ldscores.tgz)
-  - This directory should be unzipped after download
-2. List of Hapmap3 SNPs to limit LD scores to
+1.  LDSC baseline annotations for 1000G Phase3 SNPs
+  * [1000G_Phase3_baselineLD_v2.2_ldscores.tgz](https://console.cloud.google.com/storage/browser/_details/broad-alkesgroup-public-requester-pays/LDSCORE/1000G_Phase3_baselineLD_v2.2_ldscores.tgz)
+  * This directory should be unzipped after download
+2.  List of Hapmap3 SNPs to limit LD scores to
   - [w_hm3.snplist.bz2](https://console.cloud.google.com/storage/browser/_details/broad-alkesgroup-public-requester-pays/LDSCORE/w_hm3.snplist.bz2)
   - This file should be unzipped after download
 3. LDSC weights for Hapmap3 SNPs
