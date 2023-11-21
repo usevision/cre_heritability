@@ -27,7 +27,7 @@ Input files to each script are provided in the [data_files directory](../../data
 ## Making the [heatmap, dotplot hybrid, Supplemental Figure S16](../../plots/jmc_combo_straight.pdf)
 
   * Use [plot_suppfigS16.Rmd](plot_suppfigS16.Rmd)
-    *  Input to this script uses an aggregated output of running LDSC for each individual metacluster/JMC of CREs as its own annotation, and then a file which labels all the traits with the type of trait it is (blood count, blood biochemistry, non-blood)
-      * The [aggregated output of running LDSC for each JMC](../../data_files/cCRE_15-metaclusters_all_UKBB_traits.enrichment.txt) is read in on line 48
+    *  Input to this script uses an aggregated output of running LDSC for each individual metacluster/JmC of CREs as its own annotation, and then a file which labels all the traits with the type of trait it is (blood count, blood biochemistry, non-blood)
+      * The [aggregated output of running LDSC for each JmC](../../data_files/cCRE_15-metaclusters_all_UKBB_traits.enrichment.txt) is read in on line 48
       * The [file with the trait type annotations](../../data_files/trait_table_description_significance_type.txt) is read in on line 49, selecting only the trait names (`trait_short`) and the `type` columns
     *  The output of this script is the [heatmap, dotplot hybrid for Supplemental Figure S16](../../plots/jmc_combo_straight.pdf) which shows the traits associated with significant enrichment of the heritability of SNPs for each metacluster.    
