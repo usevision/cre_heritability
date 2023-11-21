@@ -1,4 +1,4 @@
-The files in this repository are used to produce 2 figures ([Figure 3F](../../plots/enrichment_volcano_fmshape.pdf) and [Supplemental Figure S16](../../plots/jmc_combo_straight.pdf)) and some metrics reported in the main text. Each RMarkdown file has a corresponding HTML and PDF file for easing viewing.
+The files in this repository are used to produce 2 figures ([Figure 3F](../../plots/enrichment_volcano_fmshape.pdf) and [Supplemental Figure S16](../../plots/jmc_combo_straight.pdf)) and some metrics reported in the main text. Each RMarkdown file has a corresponding HTML and PDF file for easier viewing.
 
 Input files to each script are provided in the [data_files directory](../../data_files). The data files themselves are referred to within the script using actual paths that will need to be edited if you intend to run these scripts yourselves to produce the various outputs. 
 
