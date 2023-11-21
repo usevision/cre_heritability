@@ -8,7 +8,7 @@ Input files to each script are provided in the [data_files directory](../../data
     * Input to this script is [the output of the LDSC analysis](../../data_files/raw_cCRE_all_UKBB_traits.enrichment.txt)
     * Output of this script is
       * the logged cutoff for significant enrichment (printed line 30)
-      * a further annotation of the input file that provides plotting metrics/values -- while this script itself can be used to produce a lovely volcano plot, we wanted a little more control in the aesthetics of the plot and turned to ggplot, but used this original plotting script to provide the values that would be plotted in R.
+      * a [further annotation of the input file that provides plotting metrics/values](../../data_files/withplotting_raw_cCRE_all_UKBB_traits.enrichment.txt) -- while this script itself can be used to produce a lovely volcano plot, we wanted a little more control in the aesthetics of the plot and turned to ggplot, but used this original plotting script to provide the values that would be plotted in R.
   * Step 2: Use [plot_fig3f.Rmd](plot_fig3f.Rmd) to produce the volcano plot
     * Input to this script is
       * [the further annotation produced by djt_volcano_plot.py](../../data_files/withplotting_raw_cCRE_all_UKBB_traits.enrichment.txt), specified on line 22
