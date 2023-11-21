@@ -4,7 +4,7 @@ Input files to each script are provided in the [data_files directory](../../data
 
 ## Making the [Volcano plot, Figure 3F](../../plots/enrichment_volcano_fmshape.pdf)
 
-  * Step 1: Use [djt_volcano_plot.py]
+  * Step 1: Use [djt_volcano_plot.py](djt_volcano_plot.py)
     * Input to this script is [the output of the LDSC analysis](../../data_files/raw_cCRE_all_UKBB_traits.enrichment.txt)
     * Output of this script is
       * the logged cutoff for significant enrichment (printed line 30)
